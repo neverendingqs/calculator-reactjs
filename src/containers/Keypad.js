@@ -2,14 +2,34 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { pushDigit, pushOp } from '../actions';
+import { pushDigit, pushOp, pushEquals, digits, ops } from '../actions';
+
+const digitsToSymbol = {
+  0: digits.ZERO,
+  1: digits.ONE,
+  2: digits.TWO,
+  3: digits.THREE,
+  4: digits.FOUR,
+  5: digits.FIVE,
+  6: digits.SIX,
+  7: digits.SEVEN,
+  8: digits.EIGHT,
+  9: digits.NINE
+};
+
+const opsToSymbol = {
+  '+': ops.ADD,
+  '-': ops.SUBTRACT,
+  'x': ops.MULTIPLY,
+  '÷': ops.DIVIDE
+};
 
 class Keypad extends Component {
   createOpButton(op) {
     return <button
       key={`input_${op}`}
       type='button'
-      onClick={() => this.props.pushOp(op)}
+      onClick={() => this.props.pushOp(opsToSymbol[op])}
     >{op}</button>;
   }
 
@@ -17,8 +37,16 @@ class Keypad extends Component {
     return <button
       key={`input_${digit}`}
       type='button'
-      onClick={() => this.props.pushDigit(digit)}
+      onClick={() => this.props.pushDigit(digitsToSymbol[digit])}
     >{digit}</button>;
+  }
+
+  createEqualButton() {
+    return <button
+      key={`input_=`}
+      type='button'
+      onClick={() => this.props.pushEquals()}
+    >=</button>;
   }
 
   render() {
@@ -45,13 +73,13 @@ class Keypad extends Component {
         {this.createOpButton('+')}
         {this.createOpButton('c')}
         {this.createDigitButton(0)}
-        {this.createOpButton('=')}
+        {this.createEqualButton()}
       </div>
     </div>;
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ pushDigit, pushOp }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ pushDigit, pushOp, pushEquals }, dispatch);
 
 const connector = connect(null, mapDispatchToProps);
 export default connector(Keypad);
