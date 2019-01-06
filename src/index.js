@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import Cfsm from 'calc-fsm';
 
 import App from './components/App';
 import reducers from './reducers';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Provider store={createStore(reducers)}>
+  <Provider store={createStore(reducers, { cfsm: { cfsm: new Cfsm() } })}>
     <App />
   </Provider>,
   document.getElementById('root')
