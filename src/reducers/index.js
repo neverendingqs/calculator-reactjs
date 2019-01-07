@@ -2,14 +2,13 @@ import { combineReducers } from 'redux';
 
 import { DIGIT, OP } from '../actions';
 
-const cfsm = (state = {}, action) => {
-  console.log(state)
+const cfsmState = (state = {}, action) => {
   switch (action.type) {
     case DIGIT:
-      state.toDigit(action.value);
+      state.cfsm.toDigit(action.value);
       return Object.assign({}, state);
     case OP:
-      state.toOp(action.value);
+      state.cfsm.toOp(action.value);
       return Object.assign({}, state);
     default:
   }
@@ -17,5 +16,5 @@ const cfsm = (state = {}, action) => {
   return state;
 };
 
-const rootReducer = combineReducers({ cfsm });
+const rootReducer = combineReducers({ cfsmState });
 export default rootReducer;

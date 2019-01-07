@@ -9,7 +9,7 @@ import reducers from './reducers';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Provider store={createStore(reducers, { cfsm: new Cfsm() })}>
+  <Provider store={createStore(reducers, { cfsmState: { cfsm: new Cfsm() } } )}>
     <App />
   </Provider>,
   document.getElementById('root')
