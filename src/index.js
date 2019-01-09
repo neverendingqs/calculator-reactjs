@@ -8,8 +8,15 @@ import App from './components/App';
 import reducers from './reducers';
 import * as serviceWorker from './serviceWorker';
 
+const preloadedState = {
+  cfsmState: {
+    cfsm: new Cfsm(),
+    result: 0
+  }
+};
+
 ReactDOM.render(
-  <Provider store={createStore(reducers, { cfsmState: { cfsm: new Cfsm() } } )}>
+  <Provider store={createStore(reducers, preloadedState)}>
     <App />
   </Provider>,
   document.getElementById('root')

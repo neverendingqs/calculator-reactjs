@@ -9,6 +9,6 @@ class Display extends Component {
   }
 }
 
-const mapStateToProps = ({ cfsmState: { cfsm } }) => ({ result: cfsm.calculate() || 0 })
+const mapStateToProps = ({ cfsmState: { result } }) => ({ result })
 const connector = connect(mapStateToProps);
 export default connector(Display);
