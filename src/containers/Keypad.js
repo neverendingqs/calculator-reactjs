@@ -2,34 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { pushDigit, pushEquals, pushOp, reset, digits, ops } from '../actions';
-
-const digitsToSymbol = {
-  0: digits.ZERO,
-  1: digits.ONE,
-  2: digits.TWO,
-  3: digits.THREE,
-  4: digits.FOUR,
-  5: digits.FIVE,
-  6: digits.SIX,
-  7: digits.SEVEN,
-  8: digits.EIGHT,
-  9: digits.NINE
-};
-
-const opsToSymbol = {
-  '+': ops.ADD,
-  '-': ops.SUBTRACT,
-  'x': ops.MULTIPLY,
-  '÷': ops.DIVIDE
-};
+import { pushDigit, pushEquals, pushOp, reset } from '../actions';
 
 class Keypad extends Component {
   createOpButton(op) {
     return <button
       key={`input_${op}`}
       type='button'
-      onClick={() => this.props.pushOp(opsToSymbol[op])}
+      onClick={() => this.props.pushOp(op)}
     >{op}</button>;
   }
 
@@ -37,7 +17,7 @@ class Keypad extends Component {
     return <button
       key={`input_${digit}`}
       type='button'
-      onClick={() => this.props.pushDigit(digitsToSymbol[digit])}
+      onClick={() => this.props.pushDigit(digit)}
     >{digit}</button>;
   }
 

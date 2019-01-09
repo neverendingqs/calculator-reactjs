@@ -1,5 +1,3 @@
-import { digits, ops } from 'calc-fsm/lib/enum';
-
 const DIGIT = 'DIGIT';
 const OP = 'OP';
 const EQUALS = 'EQUALS';
@@ -15,9 +13,6 @@ export {
   EQUALS,
   OP,
   RESET,
-
-  digits,
-  ops,
 
   pushDigit,
   pushEquals,
