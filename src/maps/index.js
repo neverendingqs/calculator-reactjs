@@ -1,4 +1,4 @@
-import cfsmEnum from 'calc-fsm/lib/enum';
+import Cfsm from 'calc-fsm';
 
 // https://stackoverflow.com/a/46582758
 function invert(o) {
@@ -9,7 +9,8 @@ function invert(o) {
       .map(([k,v]) => ({ [v]: k })))
 }
 
-const { digits: cfsmDigits, ops: cfsmOps } = cfsmEnum;
+const cfsmDigits = Cfsm.digits;
+const cfsmOps = Cfsm.ops;
 
 const digitToCfsmDigit = {
   0: cfsmDigits.ZERO,
