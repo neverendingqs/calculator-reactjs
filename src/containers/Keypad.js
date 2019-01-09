@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { pushDigit, pushOp, pushEquals, digits, ops } from '../actions';
+import { pushDigit, pushEquals, pushOp, reset, digits, ops } from '../actions';
 
 const digitsToSymbol = {
   0: digits.ZERO,
@@ -49,6 +49,14 @@ class Keypad extends Component {
     >=</button>;
   }
 
+  createResetButton() {
+    return <button
+      key={`input_c`}
+      type='button'
+      onClick={() => this.props.reset()}
+    >c</button>;
+  }
+
   render() {
     return <div>
       <div className="row">
@@ -71,7 +79,7 @@ class Keypad extends Component {
       </div>
       <div className="row">
         {this.createOpButton('+')}
-        {this.createOpButton('c')}
+        {this.createResetButton()}
         {this.createDigitButton(0)}
         {this.createEqualButton()}
       </div>
@@ -79,7 +87,10 @@ class Keypad extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ pushDigit, pushOp, pushEquals }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  { pushDigit, pushOp, pushEquals, reset },
+  dispatch
+);
 
 const connector = connect(null, mapDispatchToProps);
 export default connector(Keypad);
