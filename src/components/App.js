@@ -4,7 +4,8 @@ import Display from '../containers/Display'
 import Keypad from '../containers/Keypad';
 
 export default () =>
-  <div>
+  <div className="text-center">
     <Display />
+    <hr />
     <Keypad />
   </div>;

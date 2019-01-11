@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 class Display extends Component {
   render() {
-    return <label>
+    return <h1 class="display-1 text-center">
       {this.props.result}
-    </label>;
+    </h1>;
   }
 }
 
