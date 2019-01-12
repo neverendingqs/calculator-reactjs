@@ -5,7 +5,9 @@ import { digitToCfsmDigit, opToCfsmOp, cfsmDigitToDigit, cfsmOpToOp } from '../m
 
 function cfsmHistoryToHistory(cfsmHistory) {
   return cfsmHistory
-    .map(state => cfsmDigitToDigit[state] || cfsmOpToOp[state]);
+    .map(state => cfsmDigitToDigit[state] || cfsmOpToOp[state])
+    .join("")
+    .replace(/^[0]+/g, '');
 }
 
 const cfsmState = (state = {}, action) => {
