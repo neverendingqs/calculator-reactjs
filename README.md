@@ -1,6 +1,9 @@
 # calculator-reactjs
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b24b1c41-f153-47bb-8849-a2acea88d4e1/deploy-status)](https://app.netlify.com/sites/simplecalculator-reactjs/deploys)
+[![Netlify
+Status](https://api.netlify.com/api/v1/badges/b24b1c41-f153-47bb-8849-a2acea88d4e1/deploy-status)](https://app.netlify.com/sites/simplecalculator-reactjs/deploys)
+[![Greenkeeper
+badge](https://badges.greenkeeper.io/neverendingqs/calculator-reactjs.svg)](https://greenkeeper.io/)
 
 [![Deploy to
 Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/neverendingqs/calculator-reactjs)
